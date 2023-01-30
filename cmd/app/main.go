@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"github.com/Vellvill/frames/internal/client/s3"
 
 	"github.com/Vellvill/frames/internal/database"
 	goodsService "github.com/Vellvill/frames/internal/database/good"
@@ -22,4 +23,6 @@ func main() {
 	_ = imagesService.NewImageService(imagesRepo.NewImageRepository(db))
 	_ = goodsRepo.NewGoodsService(goodsService.NewGoodsRepository(db))
 
+	_ = s3.NewDownloader()
+	_ = s3.NewUploader()
 }
